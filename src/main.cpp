@@ -230,6 +230,7 @@ const char* fragmentShaderSource = "#version 330 core\n"
 		}
 	};
 
+
 	void processInput(GLFWwindow *window)
 	{
 		if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
