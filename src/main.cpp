@@ -96,6 +96,10 @@ const char* fragmentShaderSource = "#version 330 core\n"
 	struct polygon
 	{
 		std::vector<triangle> triangles;
+		//std::vector<point> pointsArray;
+		//std::vector<point> rotatedPoints;
+		//std::vector<point> projectedPoints;
+		//Num points shouldn't be preset to 8, but will be set on initialization
 		point pointsArray[8];
 		point rotatedPoints[8];
 		point projectedPoints[8];
@@ -395,7 +399,7 @@ int main() {
 		//TAKE THIS OUTSIDE IF STATEMENTS AND PUT AT BOTTOM
 		glUseProgram(shaderProgram);
 		glBindVertexArray(VAO);
-		
+
 		// Export variables to shader
 		glUseProgram(shaderProgram);
 		glUniform1f(glGetUniformLocation(shaderProgram, "size"), size);
@@ -408,6 +412,7 @@ int main() {
 			}
 		*/
 		
+		//Find way to convert to switch case
 		if(glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS){
 			cube.translatePoints(0.0f, 0.0f, -transVal);
 			cube.rotatePoints(0.0f, -1.0f, 0.0f);
