@@ -21,7 +21,6 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }  
 
-
 //SHADERS COPY PASTED
 
 const char* vertexShaderSource = "#version 330 core\n"
