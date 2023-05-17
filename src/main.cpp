@@ -340,7 +340,7 @@ int main() {
 
 	cube.definePoints(points);
 	//cube.rotatePoints(0.0f, 0.0f, 20.0f);
-	//cube.translatePoints(0.0f, 0.0f, transVal);
+	cube.translatePoints(0.0f, 0.0f, transVal);
 	
 	cube.projectPoints(projection);
 	cube.scaleToScreen();
@@ -393,22 +393,9 @@ int main() {
 	while (!glfwWindowShouldClose(window))
 	{
 		//TAKE THIS OUTSIDE IF STATEMENTS AND PUT AT BOTTOM
-
-		// Specify the color of the background
-		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
-		// Clean the back buffer and assign the new color to it
-		glClear(GL_COLOR_BUFFER_BIT);
-		// Tell OpenGL which Shader Program we want to use
 		glUseProgram(shaderProgram);
-		// Bind the VAO so OpenGL knows to use it
 		glBindVertexArray(VAO);
 		
-		for(int i = 0; i < sizeof(meshArray); i+=3){
-			glDrawArrays(GL_LINE_LOOP, i, 3);
-		}
-		
-			
-
 		// Export variables to shader
 		glUseProgram(shaderProgram);
 		glUniform1f(glGetUniformLocation(shaderProgram, "size"), size);
@@ -425,103 +412,45 @@ int main() {
 			cube.translatePoints(0.0f, 0.0f, -transVal);
 			cube.rotatePoints(0.0f, -1.0f, 0.0f);
 			cube.translatePoints(0.0f, 0.0f, transVal);
-			cube.projectPoints(projection);
-			cube.scaleToScreen();
-			cube.defineTriangles();
-			copy(cube.triangles.begin(), cube.triangles.end(), meshArray);
-			glClearColor(0.07f, 0.13f, 0.5f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);
-			glBindBuffer(GL_ARRAY_BUFFER, VBO);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(meshArray), meshArray, GL_STATIC_DRAW);
-			for(int i = 0; i < sizeof(meshArray); i+=3){
-				glDrawArrays(GL_LINE_LOOP, i, 3);
-			}	
+				
 		}
 		else if(glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS){
 			cube.translatePoints(0.0f, 0.0f, -transVal);
 			cube.rotatePoints(0.0f, 1.0f, 0.0f);
 			cube.translatePoints(0.0f, 0.0f, transVal);
-			cube.projectPoints(projection);
-			cube.scaleToScreen();
-			cube.defineTriangles();
-			copy(cube.triangles.begin(), cube.triangles.end(), meshArray);
-			glClearColor(0.07f, 0.13f, 0.5f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);
-			glBindBuffer(GL_ARRAY_BUFFER, VBO);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(meshArray), meshArray, GL_STATIC_DRAW);
-			for(int i = 0; i < sizeof(meshArray); i+=3){
-				glDrawArrays(GL_LINE_LOOP, i, 3);
-			}	
-			
 		}
 		if(glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS){
 			cube.translatePoints(0.0f, 0.0f, -transVal);
 			cube.rotatePoints(1.0f, 0.0f, 0.0f);
 			cube.translatePoints(0.0f, 0.0f, transVal);
-			cube.projectPoints(projection);
-			cube.scaleToScreen();
-			cube.defineTriangles();
-			copy(cube.triangles.begin(), cube.triangles.end(), meshArray);
-			glClearColor(0.07f, 0.13f, 0.5f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);
-			glBindBuffer(GL_ARRAY_BUFFER, VBO);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(meshArray), meshArray, GL_STATIC_DRAW);
-			for(int i = 0; i < sizeof(meshArray); i+=3){
-				glDrawArrays(GL_LINE_LOOP, i, 3);
-			}	
-			
 		}
 		else if(glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS){
 			cube.translatePoints(0.0f, 0.0f, -transVal);
 			cube.rotatePoints(-1.0f, 0.0f, 0.0f);
 			cube.translatePoints(0.0f, 0.0f, transVal);
-			cube.projectPoints(projection);
-			cube.scaleToScreen();
-			cube.defineTriangles();
-			copy(cube.triangles.begin(), cube.triangles.end(), meshArray);
-			glClearColor(0.07f, 0.13f, 0.5f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);
-			glBindBuffer(GL_ARRAY_BUFFER, VBO);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(meshArray), meshArray, GL_STATIC_DRAW);
-			for(int i = 0; i < sizeof(meshArray); i+=3){
-				glDrawArrays(GL_LINE_LOOP, i, 3);
-			}	
-			
 		}
 		if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
 			cube.translatePoints(0.0f, 0.0f, -transVal);
 			cube.rotatePoints(0.0f, 0.0f, -1.0f);
-			cube.translatePoints(0.0f, 0.0f, transVal);
-			cube.projectPoints(projection);
-			cube.scaleToScreen();
-			cube.defineTriangles();
-			copy(cube.triangles.begin(), cube.triangles.end(), meshArray);
-			glClearColor(0.07f, 0.13f, 0.5f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);
-			glBindBuffer(GL_ARRAY_BUFFER, VBO);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(meshArray), meshArray, GL_STATIC_DRAW);
-			for(int i = 0; i < sizeof(meshArray); i+=3){
-				glDrawArrays(GL_LINE_LOOP, i, 3);
-			}	
-			
+			cube.translatePoints(0.0f, 0.0f, transVal);	
 		}	
 		else if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
 			cube.translatePoints(0.0f, 0.0f, -transVal);
 			cube.rotatePoints(0.0f, 0.0f, 1.0f);
 			cube.translatePoints(0.0f, 0.0f, transVal);
-			cube.projectPoints(projection);
-			cube.scaleToScreen();
-			cube.defineTriangles();
-			copy(cube.triangles.begin(), cube.triangles.end(), meshArray);
-			glClearColor(0.07f, 0.13f, 0.5f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);
-			glBindBuffer(GL_ARRAY_BUFFER, VBO);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(meshArray), meshArray, GL_STATIC_DRAW);
-			for(int i = 0; i < sizeof(meshArray); i+=3){
-				glDrawArrays(GL_LINE_LOOP, i, 3);
-			}	
-			
-		}	
+		}
+
+		cube.projectPoints(projection);
+		cube.defineTriangles();
+		copy(cube.triangles.begin(), cube.triangles.end(), meshArray);
+		glClearColor(0.07f, 0.13f, 0.5f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
+		glBindBuffer(GL_ARRAY_BUFFER, VBO);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(meshArray), meshArray, GL_STATIC_DRAW);
+		for(int i = 0; i < sizeof(meshArray); i+=3){
+			glDrawArrays(GL_LINE_LOOP, i, 3);
+		}
+
 		processInput(window);
 		// Swap the back buffer with the front buffer
 		glfwSwapBuffers(window);
