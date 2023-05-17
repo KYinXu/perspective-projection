@@ -306,7 +306,7 @@ int main() {
 	GLfloat znear = 0.1f;
 	GLfloat q = zfar/(zfar-znear);
 	polygon cube;
-	int transVal = 3.0f;
+	int transVal = 2.0f;
 
 	projection.matrix[0][0] = aspect * fovRad;
 	projection.matrix[1][1] = fovRad;
