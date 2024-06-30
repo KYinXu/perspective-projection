@@ -34,7 +34,7 @@ const char* fragmentShaderSource = "#version 330 core\n"
 "out vec4 FragColor;\n"
 "void main()\n"
 "{\n"
-"   FragColor = vec4(0.8f, 0.9f, 0.02f, 1.0f);\n"
+"   FragColor = vec4(1.0f, 1.0f, 0.02f, 1.0f);\n"
 "}\n\0";
 
 
@@ -355,8 +355,9 @@ int main() {
 		std::cout << "x: " << cube.projectedPoints[i].x << " y: " << cube.projectedPoints[i].y << " z: " << cube.projectedPoints[i].z << "\n";
 	}
 	*/
-	
-	triangle meshArray[cube.triangles.size()]; 
+
+	//triangle meshArray[cube.triangles.size()];
+	triangle meshArray[12];  
 	
 	copy(cube.triangles.begin(), cube.triangles.end(), meshArray);
 	// Create reference containers for the Vartex Array Object and the Vertex Buffer Object
