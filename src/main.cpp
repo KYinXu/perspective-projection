@@ -21,7 +21,6 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }  
 
-
 //SHADERS COPY PASTED
 
 const char* vertexShaderSource = "#version 330 core\n"
@@ -307,7 +306,7 @@ int main() {
 	GLfloat znear = 0.1f;
 	GLfloat q = zfar/(zfar-znear);
 	polygon cube;
-	int transVal = 3.0f;
+	int transVal = 2.0f;
 
 	projection.matrix[0][0] = aspect * fovRad;
 	projection.matrix[1][1] = fovRad;
